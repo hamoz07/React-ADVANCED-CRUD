@@ -1,5 +1,5 @@
 import { Transition, Dialog } from "@headlessui/react";
-import React, { Fragment, ReactNode } from "react";
+import { Fragment, ReactNode } from "react";
 
 interface IModalProps {
   title: string;

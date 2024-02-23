@@ -5,6 +5,6 @@ export function productDescTxtSlicer(txt: string, max: number = 50): string {
     return txt
 }
 
-export function validDigits(n: string): string {
+export function validDigits(n: number): string {
     return Intl.NumberFormat('en-US').format(n)
 }

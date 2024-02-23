@@ -53,7 +53,7 @@ const Product = ({
       <div className="flex space-x-1 items-center my-2">{ColorsList}</div>
       <div className="items-center flex justify-between">
         <span className="font-extrabold text-sm text-indigo-700">
-          ${validDigits(pro.price)}
+          ${validDigits(Number(pro.price))}
         </span>
         <div className="items-center space-x-1 flex">
           <Image

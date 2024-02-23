@@ -94,7 +94,6 @@ function App() {
     });
     setErrors({ ...errors, [ev.target.name]: "" });
   };
-  console.log(targetedProduct);
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -123,6 +122,7 @@ function App() {
     ]);
     setInput(defaultVal);
     setChoosenColors([]);
+    setErrors({ ...errors, [ev.target.name]: "" });
     onClose();
   };
   const onEdit = (event: FormEvent<HTMLFormElement>) => {
@@ -285,6 +285,9 @@ function App() {
         {prods.length === 0 ? <p>no products found</p> : prodList}
       </section>
       <Modal title="Add a new product" isOpen={isOpen} onClose={onClose}>
+        <form  onSubmit={onSubmit}>
+
+        
         {InputList}
 
         <SelectBox selected={selected} setSelected={setSelected} />
@@ -303,15 +306,22 @@ function App() {
         </div>
 
         <div className="flex items-center gap-2 mt-2">
-          <Button className="py-2 bg-indigo-700" txt="Add" onClick={onSubmit} />
+          <Button
+            className="py-2 bg-indigo-700"
+            txt="Add"
+           
+            type="submit"
+          />
           <Button
             className="py-2 bg-gray-400"
             txt="cancel"
             onClick={onCancel}
           />
         </div>
+        </form>
       </Modal>
       <Modal title="Edit product" isOpen={isEditOpen} onClose={onEditClose}>
+        <form onSubmit={onEdit}>
         {EditInputList}
         <ErrorMsg msg={errors["colors"]} />
         <SelectBox
@@ -323,7 +333,6 @@ function App() {
         <div className="flex space-x-1 items-center mt-2 mb-2">
           {ColorsList}
         </div>
-
         <div className="flex flex-wrap space-x-1 items-center mt-2 mb-3">
           {/* <span style={{background: choosenColors}}>{choosenColors}</span> */}
           {choosenColors.concat(targetedProduct?.colors)?.map((col) => (
@@ -337,13 +346,18 @@ function App() {
           ))}
         </div>
         <div className="flex items-center gap-2">
-          <Button className="py-2 bg-indigo-700" txt="Edit" onClick={onEdit} />
+          <Button
+            className="py-2 bg-indigo-700"
+            txt="Edit"
+            type="submit"
+          />
           <Button
             className="py-2 bg-gray-400"
             txt="cancel"
             onClick={onEditCancel}
           />
         </div>
+        </form>
       </Modal>
       <Modal title="Are you sure ?" isOpen={isDelOpen} onClose={onDelCancel}>
         <div className="flex items-center gap-2">

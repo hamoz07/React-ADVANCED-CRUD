@@ -62,7 +62,7 @@ function App() {
   };
   const onEditClose = () => {
     setIsEditOpen(false);
-    setTargetedProduct(defaultVal);
+
     setErrors({
       description: "",
       title: "",
@@ -95,7 +95,9 @@ function App() {
     setErrors({ ...errors, [ev.target.name]: "" });
   };
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = (
+    event: FormEvent<HTMLFormElement> | ChangeEvent<HTMLInputElement>
+  ) => {
     event.preventDefault();
     const { title, description, price, imageURL } = input;
 
@@ -122,7 +124,7 @@ function App() {
     ]);
     setInput(defaultVal);
     setChoosenColors([]);
-    setErrors({ ...errors, [ev.target.name]: "" });
+
     onClose();
   };
   const onEdit = (event: FormEvent<HTMLFormElement>) => {
@@ -174,10 +176,16 @@ function App() {
   };
 
   const onCancel = () => {
-    setInput(defaultVal);
     setTimeout(() => {
       onClose();
     }, 200);
+    setErrors({
+      description: "",
+      title: "",
+      imageURL: "",
+      price: "",
+      colors: "",
+    });
   };
   const onEditCancel = () => {
     onEditClose();
@@ -285,78 +293,67 @@ function App() {
         {prods.length === 0 ? <p>no products found</p> : prodList}
       </section>
       <Modal title="Add a new product" isOpen={isOpen} onClose={onClose}>
-        <form  onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}>
+          {InputList}
 
-        
-        {InputList}
+          <SelectBox selected={selected} setSelected={setSelected} />
+          <div className="flex space-x-1 items-center mt-3">{ColorsList}</div>
+          <ErrorMsg msg={errors["colors"]} />
+          <div className="flex flex-wrap space-x-1 items-center mt-2">
+            {choosenColors.map((col) => (
+              <span
+                style={{ background: col }}
+                className="rounded-md p-1 text-xs text-white mr-1 mb-1"
+                key={col}
+              >
+                {col}
+              </span>
+            ))}
+          </div>
 
-        <SelectBox selected={selected} setSelected={setSelected} />
-        <div className="flex space-x-1 items-center mt-3">{ColorsList}</div>
-        <ErrorMsg msg={errors["colors"]} />
-        <div className="flex flex-wrap space-x-1 items-center mt-2">
-          {choosenColors.map((col) => (
-            <span
-              style={{ background: col }}
-              className="rounded-md p-1 text-xs text-white mr-1 mb-1"
-              key={col}
-            >
-              {col}
-            </span>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-2 mt-2">
-          <Button
-            className="py-2 bg-indigo-700"
-            txt="Add"
-           
-            type="submit"
-          />
-          <Button
-            className="py-2 bg-gray-400"
-            txt="cancel"
-            onClick={onCancel}
-          />
-        </div>
+          <div className="flex items-center gap-2 mt-2">
+            <Button className="py-2 bg-indigo-700" txt="Add" type="submit" />
+            <Button
+              className="py-2 bg-gray-400"
+              txt="cancel"
+              onClick={onCancel}
+            />
+          </div>
         </form>
       </Modal>
       <Modal title="Edit product" isOpen={isEditOpen} onClose={onEditClose}>
         <form onSubmit={onEdit}>
-        {EditInputList}
-        <ErrorMsg msg={errors["colors"]} />
-        <SelectBox
-          selected={targetedProduct?.category}
-          setSelected={(val) =>
-            setTargetedProduct({ ...targetedProduct, category: val })
-          }
-        />
-        <div className="flex space-x-1 items-center mt-2 mb-2">
-          {ColorsList}
-        </div>
-        <div className="flex flex-wrap space-x-1 items-center mt-2 mb-3">
-          {/* <span style={{background: choosenColors}}>{choosenColors}</span> */}
-          {choosenColors.concat(targetedProduct?.colors)?.map((col) => (
-            <span
-              style={{ background: col }}
-              className="rounded-md p-1 text-xs text-white mr-1 mb-1"
-              key={col}
-            >
-              {col}
-            </span>
-          ))}
-        </div>
-        <div className="flex items-center gap-2">
-          <Button
-            className="py-2 bg-indigo-700"
-            txt="Edit"
-            type="submit"
+          {EditInputList}
+          <ErrorMsg msg={errors["colors"]} />
+          <SelectBox
+            selected={targetedProduct?.category}
+            setSelected={(val) =>
+              setTargetedProduct({ ...targetedProduct, category: val })
+            }
           />
-          <Button
-            className="py-2 bg-gray-400"
-            txt="cancel"
-            onClick={onEditCancel}
-          />
-        </div>
+          <div className="flex space-x-1 items-center mt-2 mb-2">
+            {ColorsList}
+          </div>
+          <div className="flex flex-wrap space-x-1 items-center mt-2 mb-3">
+            {/* <span style={{background: choosenColors}}>{choosenColors}</span> */}
+            {choosenColors.concat(targetedProduct?.colors)?.map((col) => (
+              <span
+                style={{ background: col }}
+                className="rounded-md p-1 text-xs text-white mr-1 mb-1"
+                key={col}
+              >
+                {col}
+              </span>
+            ))}
+          </div>
+          <div className="flex items-center gap-2">
+            <Button className="py-2 bg-indigo-700" txt="Edit" type="submit" />
+            <Button
+              className="py-2 bg-gray-400"
+              txt="cancel"
+              onClick={onEditCancel}
+            />
+          </div>
         </form>
       </Modal>
       <Modal title="Are you sure ?" isOpen={isDelOpen} onClose={onDelCancel}>

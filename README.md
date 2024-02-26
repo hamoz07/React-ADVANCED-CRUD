@@ -10,7 +10,6 @@
 <img src="https://img.shields.io/github/languages/code-size/hamoz07/React-ADVANCED-CRUD" alt="GitHub code size in bytes" />
 <img src="https://img.shields.io/github/last-commit/hamoz07/React-ADVANCED-CRUD" alt="GitHub last commit" />
 <img src="https://img.shields.io/github/commit-activity/m/hamoz07/React-ADVANCED-CRUD" alt="GitHub commit activity month" />
-<img src="https://img.shields.io/github/license/hamoz07/React-ADVANCED-CRUD" alt="GitHub license" />
 </p>
 
 ## 📌 Overview
@@ -141,4 +140,4 @@ yarn dev
 
 ## ☁️ Deploy
 
-`[Application name](Your App URL)`
+`https://advanced-crud.vercel.app/`

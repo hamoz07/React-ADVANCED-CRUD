@@ -1,30 +1,144 @@
-# React + TypeScript + Vite
+<p align="center">
+<a href=https://github.com/hamoz07/React-ADVANCED-CRUD target="_blank">
+<img src='/placeholder.jpg' width="100%" alt="Banner" />
+</a>
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+<img src="https://img.shields.io/github/languages/code-size/hamoz07/React-ADVANCED-CRUD" alt="GitHub code size in bytes" />
+<img src="https://img.shields.io/github/last-commit/hamoz07/React-ADVANCED-CRUD" alt="GitHub last commit" />
+<img src="https://img.shields.io/github/commit-activity/m/hamoz07/React-ADVANCED-CRUD" alt="GitHub commit activity month" />
+<img src="https://img.shields.io/github/license/hamoz07/React-ADVANCED-CRUD" alt="GitHub license" />
+</p>
 
-## Expanding the ESLint configuration
+## 📌 Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+React-ADVANCED-CRUD is a project showcasing advanced React concepts and best practices. It leverages key dependencies like headlessui, heroicons, TypeScript, Tailwind CSS, and Vite for efficient development.
 
-- Configure the top-level `parserOptions` property like this:
+## 🔍 Table of Contents
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+* [📁 Project Structure](#project-structure)
+
+* [📝 Project Summary](#project-summary)
+
+* [💻 Stack](#stack)
+
+* [⚙️ Setting Up](#setting-up)
+
+* [🚀 Run Locally](#run-locally)
+
+* [🙌 Contributors](#contributors)
+
+* [☁️ Deploy](#deploy)
+
+* [📄 License](#license)
+
+## 📁 Project Structure
+
+```bash
+├── .eslintrc.cjs
+├── .gitignore
+├── README.md
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+│   ├── Image_notfoud.png
+│   └── vite.svg
+├── src
+│   ├── App.tsx
+│   ├── assets
+│   │   └── react.svg
+│   ├── components
+│   │   ├── Image.tsx
+│   │   ├── Product.tsx
+│   │   └── Ui
+│   │       ├── Button.tsx
+│   │       ├── ErrorMsg.tsx
+│   │       ├── Input.tsx
+│   │       ├── Modal.tsx
+│   │       ├── ProdColor.tsx
+│   │       └── SelectBox.tsx
+│   ├── customHooks
+│   │   └── useLocalStorage.tsx
+│   ├── data
+│   │   └── data.ts
+│   ├── index.css
+│   ├── interfaces
+│   │   └── index.ts
+│   ├── main.tsx
+│   ├── types
+│   │   └── index.ts
+│   ├── utils
+│   │   └── functions.ts
+│   ├── validation
+│   │   └── index.ts
+│   └── vite-env.d.ts
+├── tailwind.config.js
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 📝 Project Summary
+
+- [**src**](src): Contains main project source code and directories for components, hooks, data, and utilities.
+- [**src/components**](src/components): Houses reusable UI components used across the project.
+- [**src/utils**](src/utils): Includes utility functions and helper methods for various tasks.
+- [**src/assets**](src/assets): Stores static assets such as images, fonts, and stylesheets.
+- [**src/customHooks**](src/customHooks): Holds custom hooks for managing state and side effects.
+- [**src/interfaces**](src/interfaces): Defines TypeScript interfaces for data structures and types.
+- [**src/validation**](src/validation): Contains validation functions and schemas for form validation.
+- [**public**](public): Root directory for public assets like index.html and favicon.
+- [**src/types**](src/types): Houses TypeScript type definitions for external libraries and modules.
+
+## 💻 Stack
+
+- [react](https://reactjs.org/): Frontend library for building user interfaces.
+- [typescript](https://www.typescriptlang.org/): Superset of JavaScript providing static typing.
+- [tailwindcss](https://tailwindcss.com/): Utility-first CSS framework for styling.
+- [eslint](https://eslint.org/): Linter tool for identifying and fixing code errors.
+- [vite](https://vitejs.dev/): Next-generation frontend build tool.
+- [headlessui/react](https://headlessui.dev/react/): Set of completely unstyled accessible UI components.
+- [types/uuid](https://www.npmjs.com/package/uuid): TypeScript types for UUID.
+- [lucide-react](https://lucide.dev/): Icon library for React components.
+
+## ⚙️ Setting Up
+
+#### Your Environment Variable
+
+- Step 1
+
+- Step 2
+
+## 🚀 Run Locally
+1.Clone the React-ADVANCED-CRUD repository:
+```sh
+git clone https://github.com/hamoz07/React-ADVANCED-CRUD
+```
+2.Install the dependencies with one of the package managers listed below:
+```bash
+pnpm install
+bun install
+npm install
+yarn install
+```
+3.Start the development mode:
+```bash
+pnpm dev
+bun dev
+npm run dev
+yarn dev
+```
+
+## 🙌 Contributors
+<a href="https://github.com/hamoz07/React-ADVANCED-CRUD/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=hamoz07/React-ADVANCED-CRUD" />
+</a>
+
+## ☁️ Deploy
+
+`[Application name](Your App URL)`

@@ -105,14 +105,6 @@ React-ADVANCED-CRUD is a project showcasing advanced React concepts and best pra
 - [types/uuid](https://www.npmjs.com/package/uuid): TypeScript types for UUID.
 - [lucide-react](https://lucide.dev/): Icon library for React components.
 
-## ⚙️ Setting Up
-
-#### Your Environment Variable
-
-- Step 1
-
-- Step 2
-
 ## 🚀 Run Locally
 1.Clone the React-ADVANCED-CRUD repository:
 ```sh
